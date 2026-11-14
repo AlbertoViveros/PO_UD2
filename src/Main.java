@@ -734,6 +734,5 @@ void main() {
                 IO.println("");
             }
         }
-
     } while (programaActivo);
 }
