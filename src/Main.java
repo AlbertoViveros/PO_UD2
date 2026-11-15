@@ -537,7 +537,7 @@ void main() {
                 IO.println("""
                         ╔══════════════════════════════════════════════════╗
                         ║                                                  ║
-                        ║              INFORMACIÓN ZONA AZUL              ║
+                        ║              INFORMACIÓN ZONA AZUL               ║
                         ║                                                  ║
                         ╠══════════════════════════════════════════════════╣
                         ║%-50s║
@@ -559,11 +559,11 @@ void main() {
                         ╚══════════════════════════════════════════════════╝
                         """.formatted(
                         "  Fecha y hora actual: " + fechaActual,
-                        "  00:15:00 | " + precioNoResidente1 + " | " + precioResidente1,
-                        "  00:29:50 | " + precioNoResidente2 + " | " + precioResidente2,
-                        "  00:59:31 | " + precioNoResidente3 + " | " + precioResidente3,
-                        "  01:29:12 | " + precioNoResidente4 + " | " + precioResidente4,
-                        "  02:00:00 | " + precioNoResidente5 + " | " + precioResidente5,
+                        "  00:15:00  | " + precioNoResidente1 + "        | " + precioResidente1,
+                        "  00:29:50  | " + precioNoResidente2 + "        | " + precioResidente2,
+                        "  00:59:31  | " + precioNoResidente3 + "        | " + precioResidente3,
+                        "  01:29:12  | " + precioNoResidente4 + "        | " + precioResidente4,
+                        "  02:00:00  | " + precioNoResidente5 + "        | " + precioResidente5,
                         "  Lunes a viernes: 09:00-14:00 / 17:00-21:00",
                         "  Sábados: 09:00-14:00",
                         "  Domingos: Cerrado"
