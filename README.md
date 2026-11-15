@@ -81,11 +81,15 @@ java -version
 
 2. Descomprima la carpeta en su equipo.
 
-3. Abra una terminal dentro de la carpeta descomprimida y ejecute directamente el archivo fuente `.java`:
+3. Compruebe que los archivos `Ejecutar_ZonaAzul.bat` y `PracticaObligatoriaT2.jar` se encuentran en la misma carpeta.
+
+4. Para iniciar el programa en Windows, haga doble clic sobre el archivo `Ejecutar_ZonaAzul.bat`. Se abrirá una consola y se ejecutará automáticamente el parquímetro.
+
+> [!NOTE]
+> También es posible ejecutar el programa manualmente desde una terminal situada en la carpeta donde se encuentra el archivo `.jar`, utilizando el siguiente comando:
 
 ```
-java ZonaAzulMartos.java
-
+java -jar PracticaObligatoriaT2.jar
 ```
 
 ## MANUAL DE USUARIO 👨‍🏫
@@ -121,7 +125,7 @@ Al seleccionar la opción **\[1\]**, el programa iniciará el proceso de expedic
 
 * **CONDICIÓN DE RESIDENTE Y PAGO**: En primer lugar, preguntará si el conductor es residente (`Si/No`) y solicitará introducir el importe en euros (admite coma o punto decimal y el símbolo `€`, por ejemplo: `1,50` o `1,50 €`).
 
-  * Si la cantidad introducida tiene un formato inválido o no alcanza el importe mínimo del Tramo 1, el programa avisará al usuario (`Dinero insuficiente para obtener un ticket.`).
+  * Si la cantidad introducida tiene un formato inválido, el programa mostrará un mensaje de error y volverá a solicitar el importe. Si el formato es correcto, pero el dinero no alcanza el importe mínimo del Tramo 1, mostrará el mensaje `Dinero insuficiente para obtener un ticket.`.
 
   * Si el importe es válido, asignará automáticamente el tramo de mayor duración posible y calculará el dinero sobrante.
 
@@ -356,8 +360,10 @@ Para la lógica interna del programa se han implementado las siguientes solucion
    
    ```
 
-2. **Generación y validación de identificadores únicos:**
-   Cada ticket combina la marca temporal (`yyyyMMddHHmmss`) con un contador incremental multiplicando por `10000`, garantizando un código numérico de 18 cifras (`long numeroTicket = fechaNumerica * 10000 + contadorTickets`).
+2. **Generación y comprobación de los números de ticket:**
+   Cada ticket combina la fecha y hora de emisión (`yyyyMMddHHmmss`) con un contador incremental. Para generar el número, se multiplica la fecha numérica por `10000` y se suma el contador (`long numeroTicket = fechaNumerica * 10000 + contadorTickets`).
+
+   Cuando se intenta anular una multa, el programa divide el número entre `10000` para recuperar la fecha y el contador, y vuelve a construir el número original. Además, comprueba que el ticket esté guardado entre los generados y que no haya sido anulado anteriormente.
 
 3. **Almacenamiento en memoria mediante cadenas delimitadas:**
    Para controlar qué tickets son auténticos y evitar que un mismo ticket se use dos veces para anular multas, se emplean cadenas de texto delimitadas por punto y coma (`;`):
@@ -368,6 +374,9 @@ Para la lógica interna del programa se han implementado las siguientes solucion
            && !numerosTicketsAnulados.contains(";" + numeroTicketTexto + ";"))
    
    ```
+   
+4. **Duración de los datos:**
+   Los tickets generados, los tickets anulados y las estadísticas se guardan en variables durante la ejecución del programa. Esto significa que los datos se mantienen mientras el software está abierto, pero se reinician al cerrar y volver a iniciar la aplicación.   
 
 ## COLABORADORES 🤝
 
