@@ -59,10 +59,10 @@ Para el desarrollo se ha hecho uso de las clases `LocalDateTime` y `DateTimeForm
 
 Para poder descargar y utilizar el programa, es necesario tener instalado el siguiente entorno:
 
-* Java Development Kit (JDK 23 o superior, recomendado **JDK 25**)
+* Java Development Kit (JDK 25 o superior).
 
-> \[!WARNING\]
-> Si no tiene Java 23/25 instalado o la versión es antigua (como Java 17 o 21), el programa no se ejecutará debido al uso de métodos `main` sin clase envolvente y la clase `IO`. Asegúrese de tener una versión compatible antes de continuar.
+> [!WARNING]
+> Si no tiene Java 25 instalado o la versión es antigua (como Java 17, 21 o 23), el programa no se ejecutará debido al uso de métodos `main` sin clase envolvente y la clase `IO`. Asegúrese de tener una versión compatible antes de continuar.
 
 Para comprobar la versión de Java que tiene instalada debe realizar los siguientes pasos:
 
